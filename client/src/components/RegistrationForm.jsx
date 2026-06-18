@@ -39,7 +39,8 @@ export default function RegistrationForm({ formRef }) {
     setServerMessage("")
 
     try {
-      const res = await fetch("/api/enquiry", {
+      const API_URL = import.meta.env.VITE_API_URL || "/api/enquiry"
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
